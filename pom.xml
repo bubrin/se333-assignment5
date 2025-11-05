@@ -78,7 +78,7 @@
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>false</failsOnError>
                     <linkXRef>false</linkXRef>
-                    <outputFile>target/checkstyle.xml</outputFile>
+                    <outputFile>target/checkstyle-result.xml</outputFile>
                     <outputFileFormat>xml</outputFileFormat>
                 </configuration>
                 <executions>
