@@ -50,6 +50,7 @@ class AmazonIntegrationTest {
         assertEquals(2, realCart.getItems().size());
     }
 
+
     @Test
     @DisplayName("structural-based")
     void testExtraCostForElectronics() {

@@ -1,7 +1,6 @@
 package org.example.Amazon;
 
-import org.example.Amazon.Cost.ItemType;
-import org.example.Amazon.Cost.PriceRule;
+import org.example.Amazon.Cost.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -64,4 +63,43 @@ class AmazonUnitTest {
         assertTrue(electronicItem.equals(electronicItem));
         assertFalse(electronicItem.equals(otherItem));
     }
+    @Test
+    @DisplayName("specification-based")
+    void testExtraCostRule() {
+        ExtraCostForElectronics rule = new ExtraCostForElectronics();
+        Item electronic = new Item(ItemType.ELECTRONIC, "Macbook", 1, 2500);
+        Item other = new Item(ItemType.OTHER, "Cat Tree", 1, 100);
+
+        double total = rule.priceToAggregate(List.of(electronic, other));
+        assertEquals(7.50, total);
+
+        total = rule.priceToAggregate(List.of(other));
+        assertEquals(0, total);
+    }
+
+    @Test
+    @DisplayName("specification-based DeliveryPrice")
+    void testDeliveryPrice() {
+        DeliveryPrice rule = new DeliveryPrice();
+
+        double totalWithElectronic = rule.priceToAggregate(List.of(electronicItem));
+        assertEquals(5, totalWithElectronic);
+
+        double totalWithOther = rule.priceToAggregate(List.of(otherItem));
+        assertEquals(5, totalWithOther);
+
+        double totalWith3Items = rule.priceToAggregate(List.of(electronicItem, otherItem, electronicItem));
+        assertEquals(5, totalWith3Items);
+
+        double totalWith5Items = rule.priceToAggregate(List.of(electronicItem, otherItem, electronicItem, otherItem, electronicItem));
+        assertEquals(12.5, totalWith5Items);
+
+        List<Item> manyItems = new java.util.ArrayList<>();
+        for (int i = 0; i < 11; i++) {
+            manyItems.add(electronicItem);
+        }
+        assertEquals(20.0, rule.priceToAggregate(manyItems));
+    }
+
+
 }
