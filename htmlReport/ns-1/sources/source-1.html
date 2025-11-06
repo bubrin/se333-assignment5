@@ -1,0 +1,146 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Amazon</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example.Amazon</a>
+</div>
+
+<h1>Coverage Summary for Class: Amazon (org.example.Amazon)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Amazon</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example.Amazon;
+&nbsp;
+&nbsp;import org.example.Amazon.Cost.PriceRule;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class Amazon {
+&nbsp;
+&nbsp;    private final List&lt;PriceRule&gt; rules;
+&nbsp;    private final ShoppingCart carts;
+&nbsp;
+<b class="fc">&nbsp;    public Amazon(ShoppingCart carts, List&lt;PriceRule&gt; rules) {</b>
+<b class="fc">&nbsp;        this.carts = carts;</b>
+<b class="fc">&nbsp;        this.rules = rules;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public double calculate() {
+<b class="fc">&nbsp;        double finalPrice = 0;</b>
+&nbsp;
+<b class="fc">&nbsp;        for (PriceRule rule : rules) {</b>
+<b class="fc">&nbsp;            finalPrice += rule.priceToAggregate(carts.getItems());</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return finalPrice;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addToCart(Item item){
+<b class="fc">&nbsp;        carts.add(item);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-11-05 18:37</div>
+</div>
+</body>
+</html>
