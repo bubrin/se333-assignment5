@@ -53,7 +53,7 @@ class AmazonUnitTest {
         verify(mockCart).add(newItem);
     }
     @Test
-    @DisplayName("item coverage")
+    @DisplayName("specification-based")
     void testItemMethods() {
         assertEquals(ItemType.ELECTRONIC, electronicItem.getType());
         assertEquals("Macbook", electronicItem.getName());
@@ -78,7 +78,7 @@ class AmazonUnitTest {
     }
 
     @Test
-    @DisplayName("specification-based DeliveryPrice")
+    @DisplayName("specification-based")
     void testDeliveryPrice() {
         DeliveryPrice rule = new DeliveryPrice();
 
@@ -100,6 +100,4 @@ class AmazonUnitTest {
         }
         assertEquals(20.0, rule.priceToAggregate(manyItems));
     }
-
-
 }
